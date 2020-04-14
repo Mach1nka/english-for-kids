@@ -423,7 +423,50 @@ document.addEventListener('click', (event) =>{
   }
 });
 
+function navigationOnPage(event){
+  switch (event.target.innerText) {
+    case 'Main Page':
+      mainPage();
+      break;
+    case 'Action (set A)':
+        createPage(ACTION_A);
+        break;
+        case 'Action (set B)':
+            createPage(ACTION_B);
+            break;
+            case 'Action (set C)':
+                createPage(ACTION_C);
+                break;
+                case 'Adjective':
+                    createPage(ADJECTIVE);
+                    break;
+                    case 'Animal (set A)':
+                        createPage(ANIMAL_A);
+                        break;
+                        case 'Animal (set B)':
+                            createPage(ANIMAL_B);
+                            break;
+                            case 'Clothes':
+                                createPage(CLOTHES);
+                                break;
+                                case 'Emotion':
+                                    createPage(EMOTION);
+                                    break;
+    default: false;
+  }
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.style.border = 0;
+  });
+  event.target.style.borderBottom = '3px solid #fff';
+}
+
+MENU.addEventListener('click', navigationOnPage);
+
 function mainPage() {
+  let main = document.querySelector('.main');
+  while (main.firstChild) {
+    main.removeChild(main.firstChild);
+  }
   const NAMES = ['Action (set A)', 'Action (set B)','Action (set C)','Adjective', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions'];
   const IMAGES = ['data/img/fish.jpg','data/img/open.jpg','data/img/pull.jpg','data/img/old.jpg' ,'data/img/cat.jpg','data/img/lion.jpg','data/img/boot.jpg','data/img/laugh.jpg'];
   const ID_SECTIONS = ["action_a","action_b","action_c","adjective","animal_a","animal_b","clothes","emotion"];
@@ -456,8 +499,8 @@ function createPage(arrayOfObjects) {
     main.removeChild(main.firstChild);
   }
   for (let i = 0; i < arrayOfObjects.length; i++) {
-    document.querySelector('.main').insertAdjacentHTML('beforeend',`<section class="category_section_block">
-      <div class="section_description"><p>${arrayOfObjects[i].word}</p></div>
+    main.insertAdjacentHTML('beforeend',`<section class="category_section_block">
+    <div class="section_description"><p>${arrayOfObjects[i].word}</p></div>
     </section>`);
   }
   for (let i = 0; i < arrayOfObjects.length ;) {
