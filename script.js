@@ -455,5 +455,14 @@ function createPage(arrayOfObjects) {
   while (main.firstChild) {
     main.removeChild(main.firstChild);
   }
-  
+  for (let i = 0; i < arrayOfObjects.length; i++) {
+    document.querySelector('.main').insertAdjacentHTML('beforeend',`<section class="category_section_block">
+      <div class="section_description"><p>${arrayOfObjects[i].word}</p></div>
+    </section>`);
+  }
+  for (let i = 0; i < arrayOfObjects.length ;) {
+    document.querySelectorAll('.category_section_block').forEach( (item) => {
+      item.style.backgroundImage = `url('${arrayOfObjects[i++].image}')`;
+    });
+  }
 }
