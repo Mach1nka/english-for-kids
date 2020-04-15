@@ -1,576 +1,576 @@
-const MAIN = document.querySelector('.main');
+const MAIN = document.querySelector(".main");
 function addListeners() {
-  let cards = document.querySelectorAll('.category_section_block');
+  const cards = document.querySelectorAll(".category_section_block");
 
-  document.querySelectorAll('.rotate').forEach((item) => {
-    item.addEventListener('click', (event) => {
-      event.target.parentNode.parentNode.classList.add('transform');
-    })
+  document.querySelectorAll(".rotate").forEach((item) => {
+    item.addEventListener("click", (event) => {
+      event.target.parentNode.parentNode.classList.add("transform");
+    });
   });
 
- cards.forEach((item) => {
-   item.addEventListener('mouseleave', (event) => {
-     event.target.classList.remove('transform');
-   })
- });
+  cards.forEach((item) => {
+    item.addEventListener("mouseleave", (event) => {
+      event.target.classList.remove("transform");
+    });
+  });
 
- cards.forEach((item) => {
-   item.addEventListener('click', (event) => {
-     let sound = new Audio(item.getAttribute('data-audio'));
-     sound.play();
-   })
- });
+  cards.forEach((item) => {
+    item.addEventListener("click", (event) => {
+      const sound = new Audio(item.getAttribute("data-audio"));
+      sound.play();
+    });
+  });
 }
 
-const ACTION_A =[
+const ACTION_A = [
   {
-    word: 'cry',
-    translation: 'плакать',
-    image: 'data/img/cry.jpg',
-    audioSrc: 'data/audio/cry.mp3'
+    word: "cry",
+    translation: "плакать",
+    image: "data/img/cry.jpg",
+    audioSrc: "data/audio/cry.mp3",
   },
   {
-    word: 'dance',
-    translation: 'танцевать',
-    image: 'data/img/dance.jpg',
-    audioSrc: 'data/audio/dance.mp3'
+    word: "dance",
+    translation: "танцевать",
+    image: "data/img/dance.jpg",
+    audioSrc: "data/audio/dance.mp3",
   },
   {
-    word: 'dive',
-    translation: 'нырять',
-    image: 'data/img/dive.jpg',
-    audioSrc: 'data/audio/dive.mp3'
+    word: "dive",
+    translation: "нырять",
+    image: "data/img/dive.jpg",
+    audioSrc: "data/audio/dive.mp3",
   },
   {
-    word: 'draw',
-    translation: 'рисовать',
-    image: 'data/img/draw.jpg',
-    audioSrc: 'data/audio/draw.mp3'
+    word: "draw",
+    translation: "рисовать",
+    image: "data/img/draw.jpg",
+    audioSrc: "data/audio/draw.mp3",
   },
   {
-    word: 'fish',
-    translation: 'ловить рыбу',
-    image: 'data/img/fish.jpg',
-    audioSrc: 'data/audio/fish.mp3'
+    word: "fish",
+    translation: "ловить рыбу",
+    image: "data/img/fish.jpg",
+    audioSrc: "data/audio/fish.mp3",
   },
   {
-    word: 'fly',
-    translation: 'летать',
-    image: 'data/img/fly.jpg',
-    audioSrc: 'data/audio/fly.mp3'
+    word: "fly",
+    translation: "летать",
+    image: "data/img/fly.jpg",
+    audioSrc: "data/audio/fly.mp3",
   },
   {
-    word: 'hug',
-    translation: 'обнимать',
-    image: 'data/img/hug.jpg',
-    audioSrc: 'data/audio/hug.mp3'
+    word: "hug",
+    translation: "обнимать",
+    image: "data/img/hug.jpg",
+    audioSrc: "data/audio/hug.mp3",
   },
   {
-    word: 'jump',
-    translation: 'прыгать',
-    image: 'data/img/jump.jpg',
-    audioSrc: 'data/audio/jump.mp3'
-  }
+    word: "jump",
+    translation: "прыгать",
+    image: "data/img/jump.jpg",
+    audioSrc: "data/audio/jump.mp3",
+  },
 ];
 
 const ACTION_B = [
   {
-    word: 'open',
-    translation: 'открывать',
-    image: 'data/img/open.jpg',
-    audioSrc: 'data/audio/open.mp3'
+    word: "open",
+    translation: "открывать",
+    image: "data/img/open.jpg",
+    audioSrc: "data/audio/open.mp3",
   },
   {
-    word: 'play',
-    translation: 'играть',
-    image: 'data/img/play.jpg',
-    audioSrc: 'data/audio/play.mp3'
+    word: "play",
+    translation: "играть",
+    image: "data/img/play.jpg",
+    audioSrc: "data/audio/play.mp3",
   },
   {
-    word: 'point',
-    translation: 'указывать',
-    image: 'data/img/point.jpg',
-    audioSrc: 'data/audio/point.mp3'
+    word: "point",
+    translation: "указывать",
+    image: "data/img/point.jpg",
+    audioSrc: "data/audio/point.mp3",
   },
   {
-    word: 'ride',
-    translation: 'ездить',
-    image: 'data/img/ride.jpg',
-    audioSrc: 'data/audio/ride.mp3'
+    word: "ride",
+    translation: "ездить",
+    image: "data/img/ride.jpg",
+    audioSrc: "data/audio/ride.mp3",
   },
   {
-    word: 'run',
-    translation: 'бегать',
-    image: 'data/img/run.jpg',
-    audioSrc: 'data/audio/run.mp3'
+    word: "run",
+    translation: "бегать",
+    image: "data/img/run.jpg",
+    audioSrc: "data/audio/run.mp3",
   },
   {
-    word: 'sing',
-    translation: 'петь',
-    image: 'data/img/sing.jpg',
-    audioSrc: 'data/audio/sing.mp3'
+    word: "sing",
+    translation: "петь",
+    image: "data/img/sing.jpg",
+    audioSrc: "data/audio/sing.mp3",
   },
   {
-    word: 'skip',
-    translation: 'пропускать, прыгать',
-    image: 'data/img/skip.jpg',
-    audioSrc: 'data/audio/skip.mp3'
+    word: "skip",
+    translation: "пропускать, прыгать",
+    image: "data/img/skip.jpg",
+    audioSrc: "data/audio/skip.mp3",
   },
   {
-    word: 'swim',
-    translation: 'плавать',
-    image: 'data/img/swim.jpg',
-    audioSrc: 'data/audio/swim.mp3'
-  }
+    word: "swim",
+    translation: "плавать",
+    image: "data/img/swim.jpg",
+    audioSrc: "data/audio/swim.mp3",
+  },
 ];
 
 const ACTION_C = [
   {
-    word: 'argue',
-    translation: 'спорить',
-    image: 'data/img/argue.jpg',
-    audioSrc: 'data/audio/argue.mp3'
+    word: "argue",
+    translation: "спорить",
+    image: "data/img/argue.jpg",
+    audioSrc: "data/audio/argue.mp3",
   },
   {
-    word: 'build',
-    translation: 'строить',
-    image: 'data/img/build.jpg',
-    audioSrc: 'data/audio/build.mp3'
+    word: "build",
+    translation: "строить",
+    image: "data/img/build.jpg",
+    audioSrc: "data/audio/build.mp3",
   },
   {
-    word: 'carry',
-    translation: 'заботиться',
-    image: 'data/img/carry.jpg',
-    audioSrc: 'data/audio/carry.mp3'
+    word: "carry",
+    translation: "заботиться",
+    image: "data/img/carry.jpg",
+    audioSrc: "data/audio/carry.mp3",
   },
   {
-    word: 'catch',
-    translation: 'ловить',
-    image: 'data/img/catch.jpg',
-    audioSrc: 'data/audio/catch.mp3'
+    word: "catch",
+    translation: "ловить",
+    image: "data/img/catch.jpg",
+    audioSrc: "data/audio/catch.mp3",
   },
   {
-    word: 'drive',
-    translation: 'водить',
-    image: 'data/img/drive.jpg',
-    audioSrc: 'data/audio/drive.mp3'
+    word: "drive",
+    translation: "водить",
+    image: "data/img/drive.jpg",
+    audioSrc: "data/audio/drive.mp3",
   },
   {
-    word: 'drop',
-    translation: 'падать',
-    image: 'data/img/drop.jpg',
-    audioSrc: 'data/audio/drop.mp3'
+    word: "drop",
+    translation: "падать",
+    image: "data/img/drop.jpg",
+    audioSrc: "data/audio/drop.mp3",
   },
   {
-    word: 'pull',
-    translation: 'тянуть',
-    image: 'data/img/pull.jpg',
-    audioSrc: 'data/audio/pull.mp3'
+    word: "pull",
+    translation: "тянуть",
+    image: "data/img/pull.jpg",
+    audioSrc: "data/audio/pull.mp3",
   },
   {
-    word: 'push',
-    translation: 'толкать',
-    image: 'data/img/push.jpg',
-    audioSrc: 'data/audio/push.mp3'
-  }
+    word: "push",
+    translation: "толкать",
+    image: "data/img/push.jpg",
+    audioSrc: "data/audio/push.mp3",
+  },
 ];
 const ADJECTIVE = [
   {
-    word: 'big',
-    translation: 'большой',
-    image: 'data/img/big.jpg',
-    audioSrc: 'data/audio/big.mp3'
+    word: "big",
+    translation: "большой",
+    image: "data/img/big.jpg",
+    audioSrc: "data/audio/big.mp3",
   },
   {
-    word: 'small',
-    translation: 'маленький',
-    image: 'data/img/small.jpg',
-    audioSrc: 'data/audio/small.mp3'
+    word: "small",
+    translation: "маленький",
+    image: "data/img/small.jpg",
+    audioSrc: "data/audio/small.mp3",
   },
   {
-    word: 'fast',
-    translation: 'быстрый',
-    image: 'data/img/fast.jpg',
-    audioSrc: 'data/audio/fast.mp3'
+    word: "fast",
+    translation: "быстрый",
+    image: "data/img/fast.jpg",
+    audioSrc: "data/audio/fast.mp3",
   },
   {
-    word: 'slow',
-    translation: 'медленный',
-    image: 'data/img/slow.jpg',
-    audioSrc: 'data/audio/slow.mp3'
+    word: "slow",
+    translation: "медленный",
+    image: "data/img/slow.jpg",
+    audioSrc: "data/audio/slow.mp3",
   },
   {
-    word: 'friendly',
-    translation: 'дружелюбный',
-    image: 'data/img/friendly.jpg',
-    audioSrc: 'data/audio/friendly.mp3'
+    word: "friendly",
+    translation: "дружелюбный",
+    image: "data/img/friendly.jpg",
+    audioSrc: "data/audio/friendly.mp3",
   },
   {
-    word: 'unfriendly',
-    translation: 'не дружелюбный',
-    image: 'data/img/unfriendly.jpg',
-    audioSrc: 'data/audio/unfriendly.mp3'
+    word: "unfriendly",
+    translation: "не дружелюбный",
+    image: "data/img/unfriendly.jpg",
+    audioSrc: "data/audio/unfriendly.mp3",
   },
   {
-    word: 'young',
-    translation: 'молодой',
-    image: 'data/img/young.jpg',
-    audioSrc: 'data/audio/young.mp3'
+    word: "young",
+    translation: "молодой",
+    image: "data/img/young.jpg",
+    audioSrc: "data/audio/young.mp3",
   },
   {
-    word: 'old',
-    translation: 'старый',
-    image: 'data/img/old.jpg',
-    audioSrc: 'data/audio/old.mp3'
-  }
+    word: "old",
+    translation: "старый",
+    image: "data/img/old.jpg",
+    audioSrc: "data/audio/old.mp3",
+  },
 ];
 
 const ANIMAL_A = [
   {
-    word: 'cat',
-    translation: 'кот',
-    image: 'data/img/cat.jpg',
-    audioSrc: 'data/audio/cat.mp3'
+    word: "cat",
+    translation: "кот",
+    image: "data/img/cat.jpg",
+    audioSrc: "data/audio/cat.mp3",
   },
   {
-    word: 'chick',
-    translation: 'цыплёнок',
-    image: 'data/img/chick.jpg',
-    audioSrc: 'data/audio/chick.mp3'
+    word: "chick",
+    translation: "цыплёнок",
+    image: "data/img/chick.jpg",
+    audioSrc: "data/audio/chick.mp3",
   },
   {
-    word: 'chicken',
-    translation: 'курица',
-    image: 'data/img/chicken.jpg',
-    audioSrc: 'data/audio/chicken.mp3'
+    word: "chicken",
+    translation: "курица",
+    image: "data/img/chicken.jpg",
+    audioSrc: "data/audio/chicken.mp3",
   },
   {
-    word: 'dog',
-    translation: 'собака',
-    image: 'data/img/dog.jpg',
-    audioSrc: 'data/audio/dog.mp3'
+    word: "dog",
+    translation: "собака",
+    image: "data/img/dog.jpg",
+    audioSrc: "data/audio/dog.mp3",
   },
   {
-    word: 'horse',
-    translation: 'лошадь',
-    image: 'data/img/horse.jpg',
-    audioSrc: 'data/audio/horse.mp3'
+    word: "horse",
+    translation: "лошадь",
+    image: "data/img/horse.jpg",
+    audioSrc: "data/audio/horse.mp3",
   },
   {
-    word: 'pig',
-    translation: 'свинья',
-    image: 'data/img/pig.jpg',
-    audioSrc: 'data/audio/pig.mp3'
+    word: "pig",
+    translation: "свинья",
+    image: "data/img/pig.jpg",
+    audioSrc: "data/audio/pig.mp3",
   },
   {
-    word: 'rabbit',
-    translation: 'кролик',
-    image: 'data/img/rabbit.jpg',
-    audioSrc: 'data/audio/rabbit.mp3'
+    word: "rabbit",
+    translation: "кролик",
+    image: "data/img/rabbit.jpg",
+    audioSrc: "data/audio/rabbit.mp3",
   },
   {
-    word: 'sheep',
-    translation: 'овца',
-    image: 'data/img/sheep.jpg',
-    audioSrc: 'data/audio/sheep.mp3'
-  }
+    word: "sheep",
+    translation: "овца",
+    image: "data/img/sheep.jpg",
+    audioSrc: "data/audio/sheep.mp3",
+  },
 ];
 
 const ANIMAL_B = [
   {
-    word: 'bird',
-    translation: 'птица',
-    image: 'data/img/bird.jpg',
-    audioSrc: 'data/audio/bird.mp3'
+    word: "bird",
+    translation: "птица",
+    image: "data/img/bird.jpg",
+    audioSrc: "data/audio/bird.mp3",
   },
   {
-    word: 'fish',
-    translation: 'рыба',
-    image: 'data/img/fish1.jpg',
-    audioSrc: 'data/audio/fish.mp3'
+    word: "fish",
+    translation: "рыба",
+    image: "data/img/fish1.jpg",
+    audioSrc: "data/audio/fish.mp3",
   },
   {
-    word: 'frog',
-    translation: 'жаба',
-    image: 'data/img/frog.jpg',
-    audioSrc: 'data/audio/frog.mp3'
+    word: "frog",
+    translation: "жаба",
+    image: "data/img/frog.jpg",
+    audioSrc: "data/audio/frog.mp3",
   },
   {
-    word: 'giraffe',
-    translation: 'жирафа',
-    image: 'data/img/giraffe.jpg',
-    audioSrc: 'data/audio/giraffe.mp3'
+    word: "giraffe",
+    translation: "жирафа",
+    image: "data/img/giraffe.jpg",
+    audioSrc: "data/audio/giraffe.mp3",
   },
   {
-    word: 'lion',
-    translation: 'лев',
-    image: 'data/img/lion.jpg',
-    audioSrc: 'data/audio/lion.mp3'
+    word: "lion",
+    translation: "лев",
+    image: "data/img/lion.jpg",
+    audioSrc: "data/audio/lion.mp3",
   },
   {
-    word: 'mouse',
-    translation: 'мышь',
-    image: 'data/img/mouse.jpg',
-    audioSrc: 'data/audio/mouse.mp3'
+    word: "mouse",
+    translation: "мышь",
+    image: "data/img/mouse.jpg",
+    audioSrc: "data/audio/mouse.mp3",
   },
   {
-    word: 'turtle',
-    translation: 'черепаха',
-    image: 'data/img/turtle.jpg',
-    audioSrc: 'data/audio/turtle.mp3'
+    word: "turtle",
+    translation: "черепаха",
+    image: "data/img/turtle.jpg",
+    audioSrc: "data/audio/turtle.mp3",
   },
   {
-    word: 'dolphin',
-    translation: 'дельфин',
-    image: 'data/img/dolphin.jpg',
-    audioSrc: 'data/audio/dolphin.mp3'
-  }
+    word: "dolphin",
+    translation: "дельфин",
+    image: "data/img/dolphin.jpg",
+    audioSrc: "data/audio/dolphin.mp3",
+  },
 ];
 
 const CLOTHES = [
   {
-    word: 'skirt',
-    translation: 'юбка',
-    image: 'data/img/skirt.jpg',
-    audioSrc: 'data/audio/skirt.mp3'
+    word: "skirt",
+    translation: "юбка",
+    image: "data/img/skirt.jpg",
+    audioSrc: "data/audio/skirt.mp3",
   },
   {
-    word: 'pants',
-    translation: 'брюки',
-    image: 'data/img/pants.jpg',
-    audioSrc: 'data/audio/pants.mp3'
+    word: "pants",
+    translation: "брюки",
+    image: "data/img/pants.jpg",
+    audioSrc: "data/audio/pants.mp3",
   },
   {
-    word: 'blouse',
-    translation: 'блузка',
-    image: 'data/img/blouse.jpg',
-    audioSrc: 'data/audio/blouse.mp3'
+    word: "blouse",
+    translation: "блузка",
+    image: "data/img/blouse.jpg",
+    audioSrc: "data/audio/blouse.mp3",
   },
   {
-    word: 'dress',
-    translation: 'платье',
-    image: 'data/img/dress.jpg',
-    audioSrc: 'data/audio/dress.mp3'
+    word: "dress",
+    translation: "платье",
+    image: "data/img/dress.jpg",
+    audioSrc: "data/audio/dress.mp3",
   },
   {
-    word: 'boot',
-    translation: 'ботинок',
-    image: 'data/img/boot.jpg',
-    audioSrc: 'data/audio/boot.mp3'
+    word: "boot",
+    translation: "ботинок",
+    image: "data/img/boot.jpg",
+    audioSrc: "data/audio/boot.mp3",
   },
   {
-    word: 'shirt',
-    translation: 'рубашка',
-    image: 'data/img/shirt.jpg',
-    audioSrc: 'data/audio/shirt.mp3'
+    word: "shirt",
+    translation: "рубашка",
+    image: "data/img/shirt.jpg",
+    audioSrc: "data/audio/shirt.mp3",
   },
   {
-    word: 'coat',
-    translation: 'пальто',
-    image: 'data/img/coat.jpg',
-    audioSrc: 'data/audio/coat.mp3'
+    word: "coat",
+    translation: "пальто",
+    image: "data/img/coat.jpg",
+    audioSrc: "data/audio/coat.mp3",
   },
   {
-    word: 'shoe',
-    translation: 'туфли',
-    image: 'data/img/shoe.jpg',
-    audioSrc: 'data/audio/shoe.mp3'
-  }
+    word: "shoe",
+    translation: "туфли",
+    image: "data/img/shoe.jpg",
+    audioSrc: "data/audio/shoe.mp3",
+  },
 ];
 const EMOTION = [
   {
-    word: 'sad',
-    translation: 'грустный',
-    image: 'data/img/sad.jpg',
-    audioSrc: 'data/audio/sad.mp3'
+    word: "sad",
+    translation: "грустный",
+    image: "data/img/sad.jpg",
+    audioSrc: "data/audio/sad.mp3",
   },
   {
-    word: 'angry',
-    translation: 'сердитый',
-    image: 'data/img/angry.jpg',
-    audioSrc: 'data/audio/angry.mp3'
+    word: "angry",
+    translation: "сердитый",
+    image: "data/img/angry.jpg",
+    audioSrc: "data/audio/angry.mp3",
   },
   {
-    word: 'happy',
-    translation: 'счастливый',
-    image: 'data/img/happy.jpg',
-    audioSrc: 'data/audio/happy.mp3'
+    word: "happy",
+    translation: "счастливый",
+    image: "data/img/happy.jpg",
+    audioSrc: "data/audio/happy.mp3",
   },
   {
-    word: 'tired',
-    translation: 'уставший',
-    image: 'data/img/tired.jpg',
-    audioSrc: 'data/audio/tired.mp3'
+    word: "tired",
+    translation: "уставший",
+    image: "data/img/tired.jpg",
+    audioSrc: "data/audio/tired.mp3",
   },
   {
-    word: 'surprised',
-    translation: 'удивлённый',
-    image: 'data/img/surprised.jpg',
-    audioSrc: 'data/audio/surprised.mp3'
+    word: "surprised",
+    translation: "удивлённый",
+    image: "data/img/surprised.jpg",
+    audioSrc: "data/audio/surprised.mp3",
   },
   {
-    word: 'scared',
-    translation: 'испуганный',
-    image: 'data/img/scared.jpg',
-    audioSrc: 'data/audio/scared.mp3'
+    word: "scared",
+    translation: "испуганный",
+    image: "data/img/scared.jpg",
+    audioSrc: "data/audio/scared.mp3",
   },
   {
-    word: 'smile',
-    translation: 'улыбка',
-    image: 'data/img/smile.jpg',
-    audioSrc: 'data/audio/smile.mp3'
+    word: "smile",
+    translation: "улыбка",
+    image: "data/img/smile.jpg",
+    audioSrc: "data/audio/smile.mp3",
   },
   {
-    word: 'laugh',
-    translation: 'смех',
-    image: 'data/img/laugh.jpg',
-    audioSrc: 'data/audio/laugh.mp3'
-  }
+    word: "laugh",
+    translation: "смех",
+    image: "data/img/laugh.jpg",
+    audioSrc: "data/audio/laugh.mp3",
+  },
 ];
 
 function navigationOnMainPage() {
-  let navItems = document.querySelectorAll('.nav-item');
-  document.querySelectorAll('.main_section_block').forEach((item) => {
-    item.addEventListener('click', (event) => {
-      document.querySelectorAll('.nav-item').forEach(item => {
-        item.classList.remove('active');
+  const navItems = document.querySelectorAll(".nav-item");
+  document.querySelectorAll(".main_section_block").forEach((item) => {
+    item.addEventListener("click", (event) => {
+      document.querySelectorAll(".nav-item").forEach((item) => {
+        item.classList.remove("active");
       });
-      switch (item.getAttribute('id')) {
-        case 'action_a':
-            createPage(ACTION_A);
-            navItems[1].classList.add('active');
-            break;
-            case 'action_b':
-                createPage(ACTION_B);
-                navItems[2].classList.add('active');
-                break;
-                case 'action_c':
-                    createPage(ACTION_C);
-                    navItems[3].classList.add('active');
-                    break;
-                    case 'adjective':
-                        createPage(ADJECTIVE);
-                        navItems[4].classList.add('active');
-                        break;
-                        case 'animal_a':
-                            createPage(ANIMAL_A);
-                            navItems[5].classList.add('active');
-                            break;
-                            case 'animal_b':
-                                createPage(ANIMAL_B);
-                                navItems[6].classList.add('active');
-                                break;
-                                case 'clothes':
-                                    createPage(CLOTHES);
-                                    navItems[7].classList.add('active');
-                                    break;
-                                    case 'emotion':
-                                        createPage(EMOTION);
-                                        navItems[8].classList.add('active');
-                                        break;
+      switch (item.getAttribute("id")) {
+        case "action_a":
+          createPage(ACTION_A);
+          navItems[1].classList.add("active");
+          break;
+        case "action_b":
+          createPage(ACTION_B);
+          navItems[2].classList.add("active");
+          break;
+        case "action_c":
+          createPage(ACTION_C);
+          navItems[3].classList.add("active");
+          break;
+        case "adjective":
+          createPage(ADJECTIVE);
+          navItems[4].classList.add("active");
+          break;
+        case "animal_a":
+          createPage(ANIMAL_A);
+          navItems[5].classList.add("active");
+          break;
+        case "animal_b":
+          createPage(ANIMAL_B);
+          navItems[6].classList.add("active");
+          break;
+        case "clothes":
+          createPage(CLOTHES);
+          navItems[7].classList.add("active");
+          break;
+        case "emotion":
+          createPage(EMOTION);
+          navItems[8].classList.add("active");
+          break;
         default: false;
       }
-    })
+    });
   });
 }
 
-const HAMBURGER = document.getElementById('hamburger-menu');
-const MENU = document.getElementById('nav');
+const HAMBURGER = document.getElementById("hamburger-menu");
+const MENU = document.getElementById("nav");
 
 function showMenu(e) {
   e.stopPropagation();
-  HAMBURGER.classList.toggle('open');
-  MENU.classList.toggle('show');
+  HAMBURGER.classList.toggle("open");
+  MENU.classList.toggle("show");
 }
-HAMBURGER.addEventListener('click', showMenu);
+HAMBURGER.addEventListener("click", showMenu);
 
-document.addEventListener('click', (event) =>{
-  if (HAMBURGER.classList.contains('open') && event.target !=MENU) {
-    HAMBURGER.classList.remove('open');
-    MENU.classList.remove('show');
+document.addEventListener("click", (event) => {
+  if (HAMBURGER.classList.contains("open") && event.target != MENU) {
+    HAMBURGER.classList.remove("open");
+    MENU.classList.remove("show");
   }
 });
 
-function navigationOnPage(event){
-  document.querySelectorAll('.nav-item').forEach(item => {
-    item.classList.remove('active')
+function navigationOnPage(event) {
+  document.querySelectorAll(".nav-item").forEach((item) => {
+    item.classList.remove("active");
   });
   switch (event.target.innerText) {
-    case 'Main Page':
+    case "Main Page":
       mainPage();
       break;
-    case 'Action (set A)':
-        createPage(ACTION_A);
-        break;
-        case 'Action (set B)':
-            createPage(ACTION_B);
-            break;
-            case 'Action (set C)':
-                createPage(ACTION_C);
-                break;
-                case 'Adjective':
-                    createPage(ADJECTIVE);
-                    break;
-                    case 'Animal (set A)':
-                        createPage(ANIMAL_A);
-                        break;
-                        case 'Animal (set B)':
-                            createPage(ANIMAL_B);
-                            break;
-                            case 'Clothes':
-                                createPage(CLOTHES);
-                                break;
-                                case 'Emotion':
-                                    createPage(EMOTION);
-                                    break;
+    case "Action (set A)":
+      createPage(ACTION_A);
+      break;
+    case "Action (set B)":
+      createPage(ACTION_B);
+      break;
+    case "Action (set C)":
+      createPage(ACTION_C);
+      break;
+    case "Adjective":
+      createPage(ADJECTIVE);
+      break;
+    case "Animal (set A)":
+      createPage(ANIMAL_A);
+      break;
+    case "Animal (set B)":
+      createPage(ANIMAL_B);
+      break;
+    case "Clothes":
+      createPage(CLOTHES);
+      break;
+    case "Emotion":
+      createPage(EMOTION);
+      break;
     default: false;
   }
 
-  event.target.classList.add('active')
+  event.target.classList.add("active");
 }
 
-MENU.addEventListener('click', navigationOnPage);
+MENU.addEventListener("click", navigationOnPage);
 
 function mainPage() {
   while (MAIN.firstChild) {
     MAIN.removeChild(MAIN.firstChild);
   }
-  const NAMES = ['Action (set A)',
-  'Action (set B)',
-  'Action (set C)',
-  'Adjective',
-  'Animal (set A)',
-  'Animal (set B)',
-  'Clothes',
-  'Emotions'];
-  const IMAGES = ['data/img/fish.jpg',
-  'data/img/open.jpg',
-  'data/img/pull.jpg',
-  'data/img/old.jpg',
-  'data/img/cat.jpg',
-  'data/img/lion.jpg',
-  'data/img/boot.jpg',
-  'data/img/laugh.jpg'];
+  const NAMES = ["Action (set A)",
+    "Action (set B)",
+    "Action (set C)",
+    "Adjective",
+    "Animal (set A)",
+    "Animal (set B)",
+    "Clothes",
+    "Emotions"];
+  const IMAGES = ["data/img/fish.jpg",
+    "data/img/open.jpg",
+    "data/img/pull.jpg",
+    "data/img/old.jpg",
+    "data/img/cat.jpg",
+    "data/img/lion.jpg",
+    "data/img/boot.jpg",
+    "data/img/laugh.jpg"];
   const ID_SECTIONS = ["action_a",
-  "action_b",
-  "action_c",
-  "adjective",
-  "animal_a",
-  "animal_b",
-  "clothes",
-  "emotion"];
+    "action_b",
+    "action_c",
+    "adjective",
+    "animal_a",
+    "animal_b",
+    "clothes",
+    "emotion"];
   let z = 0;
   for (let i = 0; i < NAMES.length; i++) {
-    MAIN.insertAdjacentHTML('beforeend',
-    `<section class="main_section_block" id=${ID_SECTIONS[z++]}>
+    MAIN.insertAdjacentHTML("beforeend",
+      `<section class="main_section_block" id=${ID_SECTIONS[z++]}>
       <div class="section_img"></div>
       <div class="section_description"></div>
-    </section>`)
+    </section>`);
   }
-  let descriptionOfMain = document.querySelectorAll('.section_description');
-  let sectionImage = document.querySelectorAll('.section_img');
-  let i=0;
-  let n=0;
+  const descriptionOfMain = document.querySelectorAll(".section_description");
+  const sectionImage = document.querySelectorAll(".section_img");
+  let i = 0;
+  let n = 0;
   descriptionOfMain.forEach((item) => {
     item.innerHTML = `<p>${NAMES[i++]}</p>`;
   });
@@ -582,15 +582,13 @@ function mainPage() {
 mainPage();
 
 
-
-
 function createPage(arrayOfObjects) {
   while (MAIN.firstChild) {
     MAIN.removeChild(MAIN.firstChild);
   }
-  for (let i = 0; i < arrayOfObjects.length; i++ ) {
-    MAIN.insertAdjacentHTML('beforeend',
-    `<section class="category_section_block" data-audio="${arrayOfObjects[i].audioSrc}">
+  for (let i = 0; i < arrayOfObjects.length; i++) {
+    MAIN.insertAdjacentHTML("beforeend",
+      `<section class="category_section_block" data-audio="${arrayOfObjects[i].audioSrc}">
     <div class="card front">
       <div class="section_description">
         <p>${arrayOfObjects[i].word}</p>
@@ -604,13 +602,13 @@ function createPage(arrayOfObjects) {
     </div>
     </section>`);
   }
-  for (let i = 0; i < arrayOfObjects.length ;) {
-    document.querySelectorAll('.front').forEach( (item) => {
+  for (let i = 0; i < arrayOfObjects.length;) {
+    document.querySelectorAll(".front").forEach((item) => {
       item.style.backgroundImage = `url('${arrayOfObjects[i++].image}')`;
     });
   }
-  for (let i = 0; i < arrayOfObjects.length ;) {
-    document.querySelectorAll('.back').forEach( (item) => {
+  for (let i = 0; i < arrayOfObjects.length;) {
+    document.querySelectorAll(".back").forEach((item) => {
       item.style.backgroundImage = `url('${arrayOfObjects[i++].image}')`;
     });
   }
