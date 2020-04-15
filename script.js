@@ -1,3 +1,19 @@
+const MAIN = document.querySelector('.main');
+function addListeners() {
+  document.querySelectorAll('.rotate').forEach((item) => {
+    item.addEventListener('click', (event) => {
+      event.target.parentNode.parentNode.classList.add('transform');
+    })
+  });
+
+ document.querySelectorAll('.category_section_block').forEach((item) => {
+   item.addEventListener('mouseleave', (event) => {
+     event.target.classList.remove('transform');
+   })
+ });
+ 
+}
+
 const ACTION_A =[
   {
     word: 'cry',
@@ -189,7 +205,7 @@ const ADJECTIVE = [
   },
   {
     word: 'young',
-    translation: 'молодай',
+    translation: 'молодой',
     image: 'data/img/young.jpg',
     audioSrc: 'data/audio/young.mp3'
   },
@@ -404,7 +420,37 @@ const EMOTION = [
   }
 ];
 
-
+// function navigationOnMainPage(event) {
+//   switch (event.target.getAttribute('id')) {
+//     case 'action_a':
+//         createPage(ACTION_A);
+//         break;
+//         case 'action_b':
+//             createPage(ACTION_B);
+//             break;
+//             case 'action_c':
+//                 createPage(ACTION_C);
+//                 break;
+//                 case 'adjective':
+//                     createPage(ADJECTIVE);
+//                     break;
+//                     case 'animal_a':
+//                         createPage(ANIMAL_A);
+//                         break;
+//                         case 'animal_b':
+//                             createPage(ANIMAL_B);
+//                             break;
+//                             case 'clothes':
+//                                 createPage(CLOTHES);
+//                                 break;
+//                                 case 'emotion':
+//                                     createPage(EMOTION);
+//                                     break;
+//     default: false;
+//   }
+// }
+//
+// document.querySelectorAll('.')
 
 const HAMBURGER = document.getElementById('hamburger-menu');
 const MENU = document.getElementById('nav');
@@ -463,16 +509,15 @@ function navigationOnPage(event){
 MENU.addEventListener('click', navigationOnPage);
 
 function mainPage() {
-  let main = document.querySelector('.main');
-  while (main.firstChild) {
-    main.removeChild(main.firstChild);
+  while (MAIN.firstChild) {
+    MAIN.removeChild(MAIN.firstChild);
   }
   const NAMES = ['Action (set A)', 'Action (set B)','Action (set C)','Adjective', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions'];
   const IMAGES = ['data/img/fish.jpg','data/img/open.jpg','data/img/pull.jpg','data/img/old.jpg' ,'data/img/cat.jpg','data/img/lion.jpg','data/img/boot.jpg','data/img/laugh.jpg'];
   const ID_SECTIONS = ["action_a","action_b","action_c","adjective","animal_a","animal_b","clothes","emotion"];
   let z = 0;
   for (let i = 0; i < NAMES.length; i++) {
-    document.querySelector('.main').insertAdjacentHTML('beforeend',`<section class="main_section_block" id=${ID_SECTIONS[z++]}>
+    MAIN.insertAdjacentHTML('beforeend',`<section class="main_section_block" id=${ID_SECTIONS[z++]}>
       <div class="section_img"></div>
       <div class="section_description"></div>
     </section>`)
@@ -494,18 +539,24 @@ mainPage();
 
 
 function createPage(arrayOfObjects) {
-  let main = document.querySelector('.main');
-  while (main.firstChild) {
-    main.removeChild(main.firstChild);
+  while (MAIN.firstChild) {
+    MAIN.removeChild(MAIN.firstChild);
   }
-  for (let i = 0; i < arrayOfObjects.length; i++) {
-    main.insertAdjacentHTML('beforeend',`<section class="category_section_block">
-    <div class="section_description"><p>${arrayOfObjects[i].word}</p></div>
+  for (let i = 0; i < arrayOfObjects.length; i++ ) {
+    MAIN.insertAdjacentHTML('beforeend',`<section class="category_section_block">
+    <div class="card front"><div class="section_description"><p>${arrayOfObjects[i].word}</p></div><div class="rotate"></div></div>
+    <div class="card back"><div class="section_description"><p>${arrayOfObjects[i].translation}</p></div></div>
     </section>`);
   }
   for (let i = 0; i < arrayOfObjects.length ;) {
-    document.querySelectorAll('.category_section_block').forEach( (item) => {
+    document.querySelectorAll('.front').forEach( (item) => {
       item.style.backgroundImage = `url('${arrayOfObjects[i++].image}')`;
     });
   }
+  for (let i = 0; i < arrayOfObjects.length ;) {
+    document.querySelectorAll('.back').forEach( (item) => {
+      item.style.backgroundImage = `url('${arrayOfObjects[i++].image}')`;
+    });
+  }
+  addListeners(); // call events
 }

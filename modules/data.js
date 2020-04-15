@@ -189,7 +189,7 @@ const ADJECTIVE = [
   },
   {
     word: 'young',
-    translation: 'молодай',
+    translation: 'молодой',
     image: 'data/img/young.jpg',
     audioSrc: 'data/audio/young.mp3'
   },
