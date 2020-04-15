@@ -22,6 +22,7 @@ function mainPage() {
   sectionImage.forEach((item) => {
     item.innerHTML = `<img src=${IMAGES[n++]}>`;
   });
+  navigationOnMainPage();
 }
 mainPage();
 

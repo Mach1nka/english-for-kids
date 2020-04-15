@@ -16,6 +16,9 @@ document.addEventListener('click', (event) =>{
 });
 
 function navigationOnPage(event){
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.classList.remove('active')
+  });
   switch (event.target.innerText) {
     case 'Main Page':
       mainPage();
@@ -46,10 +49,8 @@ function navigationOnPage(event){
                                     break;
     default: false;
   }
-  document.querySelectorAll('.nav-item').forEach(item => {
-    item.style.border = 0;
-  });
-  event.target.style.borderBottom = '3px solid #fff';
+
+  event.target.classList.add('active')
 }
 
 MENU.addEventListener('click', navigationOnPage);

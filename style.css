@@ -123,11 +123,12 @@
 }
 
 .nav-item{
-  display: inline-block;
+  display: block;
+  width: max-content;
   font-size: 22px;
   color: #fff;
   text-decoration: none;
-  margin-top: 15px;
+  padding-top: 15px;
   margin-left: 15%;
   font-family: "Roboto";
 }
@@ -143,6 +144,9 @@
 }
 .nav-item:nth-child(9){ color: #1E90FF}
 
+.active{
+  border-bottom: 3px solid #fff;
+}
 
 
 #hamburger-menu{
